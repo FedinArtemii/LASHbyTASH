@@ -1,0 +1,251 @@
+@font-face {
+  font-family: Cormorant Garamond;
+  src: url(fonts/cormorant-garamond-normal.woff2) format("woff2");
+  font-weight: 300 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: Cormorant Garamond;
+  src: url(fonts/cormorant-garamond-italic.woff2) format("woff2");
+  font-weight: 300 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: Manrope;
+  src: url(fonts/manrope-normal.woff2) format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+:root {
+  --rose: #eeced9;
+  --petal: #f0d2dd;
+  --cream: #fff2e7;
+  --berry: #492837;
+  --accent: #813e5d;
+  --gold: #e3c58e;
+  --hairline: #49283745;
+  --gutter: clamp(24px, 5.28vw, 100px);
+  --header: 88px;
+  --type: "Cormorant Garamond", Georgia, serif;
+  --body: Manrope, Arial, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 24px; }
+.lash-site {
+  margin: 0;
+  background: var(--rose);
+  color: var(--berry);
+  font: 500 16px/1.55 var(--body);
+}
+::selection { background: var(--berry); color: var(--cream); }
+.lash-site a { color: inherit; }
+.lash-site :focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+.lash-skip {
+  position: absolute; z-index: 4; top: 14px; left: var(--gutter);
+  padding: 10px 16px; background: var(--cream); transform: translateY(-160%);
+}
+.lash-skip:focus { transform: none; }
+.lash-header, .lash-footer {
+  margin-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.lash-header {
+  min-height: var(--header);
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+  z-index: 2;
+}
+.lash-header a, .lash-footer a, .lash-hero-index a { text-decoration: none; }
+.lash-header a:hover, .lash-footer a:hover, .lash-hero-index a:hover {
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
+}
+.lash-brand, .lash-footer > span {
+  display: flex; align-items: center; gap: 14px;
+  font: 600 30px/1 var(--type); white-space: nowrap;
+}
+.lash-brand em, .lash-footer em { font-weight: 500; }
+.lash-brand-art {
+  display: block; width: 64px; height: 48px; background: #a66a84;
+  overflow: hidden; position: relative; flex: none;
+}
+.lash-brand-art img {
+  position: absolute; width: 144px; height: 144px; max-width: none;
+  left: -40px; top: -38px;
+}
+.lash-desktop-nav { display: flex; align-items: center; gap: 38px; font-size: 15px; font-weight: 700; }
+.lash-header-book { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 800; }
+.lash-arrow, .lash-site .wp-block-button__link::after {
+  width: 17px; height: 17px; flex: none;
+  background: currentColor; display: inline-block;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M4 16 16 4M5 4h11v11' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.lash-menu { display: none; }
+.lash-hero {
+  margin-inline: var(--gutter);
+  min-height: calc(100svh - var(--header));
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+.lash-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr);
+  gap: clamp(28px, 3.89vw, 56px);
+  padding-block: 34px 27px;
+}
+.lash-hero-copy { align-self: center; padding-bottom: 8px; }
+.lash-site h1, .lash-site h2, .editor-styles-wrapper .lash-hero h1 {
+  margin: 0; font: 500 clamp(62px, 7.1vw, 106px)/.86 var(--type);
+  letter-spacing: -.038em;
+}
+.lash-site h1 em, .lash-site h2 em { font-weight: 500; color: var(--accent); }
+.lash-hero-copy p {
+  margin: 27px 0 30px;
+  font-size: 19px;
+  font-weight: 650;
+}
+.lash-site .wp-block-button__link {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 25px; min-height: 57px; padding: 12px 24px;
+  background: var(--berry); color: var(--cream);
+  border: 1px solid transparent; border-radius: 0;
+  font: 800 15px/1.35 var(--body);
+  text-decoration: none;
+  transition: background-color 150ms, color 150ms, transform 150ms var(--ease);
+}
+.lash-site .wp-block-button__link::after { content: ""; transition: transform 150ms var(--ease); }
+.lash-site .wp-block-button__link:hover { background-color: #642e47; transform: translateY(-1px); }
+.lash-site .wp-block-button__link:hover::after { transform: translate(2px, -2px); }
+.lash-site .wp-block-button__link:active { transform: translateY(1px); }
+.lash-site .wp-block-button__link:focus-visible { outline-color: var(--berry); }
+.lash-site .wp-block-buttons, .lash-site .wp-block-button { margin: 0; }
+.lash-site .lash-hero-photo, .lash-site .lash-vip-photo {
+  position: relative; margin: 0; overflow: hidden; background: #875855;
+}
+.lash-hero-photo { min-height: clamp(470px, 64vh, 720px); }
+.lash-site .lash-hero-photo img, .lash-site .lash-vip-photo img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  position: absolute; inset: 0;
+}
+.lash-hero-photo img { object-position: 61% 46%; }
+.lash-hero-photo::after {
+  content: ""; position: absolute; inset: 12px;
+  border: 1px solid #f8dcaaa8; pointer-events: none;
+}
+.lash-site .lash-hero-index {
+  list-style: none; padding: 0; margin: 0;
+  min-height: 65px; display: flex; align-items: stretch; justify-content: space-between;
+  border-top: 1px solid var(--hairline);
+  font-size: 12px; letter-spacing: .13em; font-weight: 800; text-transform: uppercase;
+}
+.lash-hero-index li { display: flex; align-items: center; }
+.lash-hero-index li + li::before {
+  content: ""; width: 4px; height: 4px; margin-inline-end: clamp(12px, 4.7vw, 68px);
+  border-radius: 50%; background: currentColor; opacity: .55;
+}
+.lash-hero-index a { min-height: 44px; display: grid; align-items: center; }
+.lash-section { min-height: 100svh; padding: clamp(60px, 9vw, 134px) var(--gutter); }
+.lash-site h2 { font-size: clamp(58px, 7vw, 100px); }
+.lash-section-title p { max-width: 37ch; font-size: clamp(16px, 1.35vw, 20px); margin: 28px 0 0; }
+.lash-section-title p + .wp-block-buttons { margin-top: 25px; }
+.lash-services {
+  background: #faeaf0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr);
+  align-content: center; gap: clamp(28px, 6vw, 100px);
+}
+.lash-service-list { border-top: 1px solid var(--hairline); }
+.lash-service { border-bottom: 1px solid var(--hairline); margin: 0; }
+.lash-service summary {
+  position: relative; padding: 16px 42px 16px 0;
+  font: 600 clamp(31px, 3.4vw, 49px)/1.1 var(--type);
+  cursor: pointer; list-style: none; transition: color 150ms;
+}
+.lash-service summary::-webkit-details-marker, .lash-menu summary::-webkit-details-marker { display: none; }
+.lash-service summary::after, .lash-service summary::before {
+  content: ""; width: 18px; height: 1px; position: absolute;
+  right: 5px; top: 50%; background: currentColor;
+  transition: transform 150ms var(--ease);
+}
+.lash-service summary::after { transform: rotate(90deg); }
+.lash-service[open] summary::after { transform: rotate(0); }
+.lash-service summary:hover { color: var(--accent); }
+.lash-service p { margin: 0 36px 18px 0; }
+.lash-service[open] > p { animation: lash-open 180ms var(--ease); }
+@keyframes lash-open { from { opacity: .55; transform: translateY(-4px); } }
+.lash-vip {
+  background: var(--petal); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center; gap: clamp(28px, 6vw, 100px);
+}
+.lash-vip .lash-section-title { grid-column: 2; grid-row: 1; }
+.lash-vip .lash-vip-photo { grid-column: 1; grid-row: 1; aspect-ratio: 1 / 1.02; }
+.lash-vip-photo img { object-position: center; }
+.lash-booking {
+  background: var(--berry); color: var(--cream);
+  display: grid; place-items: center; min-height: calc(100svh - 74px); text-align: center;
+}
+.lash-booking h2 em { color: var(--gold); }
+.lash-booking p { margin-inline: auto; }
+.lash-booking .wp-block-buttons { justify-content: center; display: flex; }
+.lash-booking .wp-block-button__link { background: var(--cream); color: var(--berry); }
+.lash-booking .wp-block-button__link:hover { background: var(--gold); }
+.lash-booking .wp-block-button__link:focus-visible { outline-color: var(--cream); }
+.lash-footer { min-height: 74px; }
+.lash-footer > span { display: block; font-size: 26px; }
+.lash-footer small { font-size: 12px; }
+.lash-footer a { display: grid; align-items: center; min-height: 44px; font-weight: 750; }
+@media (max-width: 1100px) {
+  .lash-site h1 { font-size: clamp(56px, 7.3vw, 80px); }
+  .lash-hero-index li + li::before { margin-inline-end: 18px; }
+}
+@media (max-width: 790px) {
+  :root { --header: 67px; }
+  .lash-desktop-nav, .lash-header-book { display: none; }
+  .lash-brand { gap: 9px; font-size: 24px; }
+  .lash-brand-art { width: 48px; height: 38px; }
+  .lash-brand-art img { width: 111px; height: 111px; left: -31px; top: -29px; }
+  .lash-menu { display: block; }
+  .lash-menu summary {
+    list-style: none; cursor: pointer; min-height: 44px; display: grid; place-items: center;
+    padding-inline: 9px; font-weight: 800;
+  }
+  .lash-menu nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--petal); border: 1px solid var(--hairline);
+    padding: 8px 16px;
+  }
+  .lash-menu[open] nav { animation: lash-open 180ms var(--ease); }
+  .lash-menu nav a { display: grid; align-items: center; min-height: 48px; }
+  .lash-menu nav a + a { border-top: 1px solid var(--hairline); }
+  .lash-hero-grid { grid-template-columns: minmax(0, 1fr); gap: 23px; padding-block: 28px 14px; }
+  .lash-hero-copy { padding: 0; }
+  .lash-site h1 { font-size: clamp(48px, 12.6vw, 78px); line-height: .88; }
+  .lash-site h2 { font-size: clamp(40px, 11.7vw, 66px); }
+  .lash-hero-copy p { margin: 15px 0 17px; font-size: 16px; }
+  .lash-hero-photo { min-height: clamp(285px, 80vw, 425px); }
+  .lash-hero-photo::after { inset: 8px; }
+  .lash-site .lash-hero-index { flex-wrap: wrap; justify-content: space-between; column-gap: 6px; font-size: 10px; letter-spacing: .045em; }
+  .lash-hero-index li + li::before { display: none; }
+  .lash-section { min-height: auto; padding-block: 65px; }
+  .lash-services, .lash-vip { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .lash-vip .lash-section-title, .lash-vip .lash-vip-photo { grid-column: auto; grid-row: auto; }
+  .lash-vip .lash-vip-photo { aspect-ratio: 5 / 4; }
+  .lash-booking { min-height: 66svh; }
+  .lash-footer { flex-wrap: wrap; gap: 6px 20px; padding-block: 16px; }
+  .lash-footer small { width: 100%; order: 3; }
+}
+@media (max-width: 460px) {
+  .lash-site .wp-block-button, .lash-site .wp-block-button__link { width: 100%; }
+}
+@media (max-width: 370px) {
+  :root { --gutter: 18px; }
+  .lash-site h1 { font-size: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .lash-site *, .lash-site *::before, .lash-site *::after { animation: none !important; transition: none !important; }
+  .lash-site .wp-block-button__link:hover, .lash-site .wp-block-button__link:active,
+  .lash-site .wp-block-button__link:hover::after { transform: none; }
+}
