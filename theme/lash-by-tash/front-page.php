@@ -60,7 +60,7 @@ $nav = array( 'services' => 'Услуги', 'vip' => 'VIP-сервис', 'traini
 </main>
 <footer class="lash-footer">
   <span>LASH <em>by</em> TASH</span>
-  <small>Демонстрационные изображения созданы в ImageGen</small>
+  <small>Портрет создан в ImageGen · Фото маникюра — Monica Lööv, Pexels</small>
   <a href="#main">Наверх</a>
 </footer>
 <?php if ( ! $export ) { wp_footer(); } ?>
